@@ -1,6 +1,6 @@
 export const UserRow = ({handlerRemoveUser, id, username, email}) => {
-    const onRemoreUser = (id) => {
-        handlerRemoveUser(id);
+    const onRemoreUser = ({id}) => {
+        handlerRemoveUser(id)
     }
     
     return(
@@ -20,7 +20,7 @@ export const UserRow = ({handlerRemoveUser, id, username, email}) => {
                                 <button 
                                     type="button"
                                     className="btn btn-danger btn-sm"
-                                    onClick={() => onRemoreUser(id)}
+                                    onClick={onRemoreUser(id)}
                                 >
                                     Remove
                                 </button>

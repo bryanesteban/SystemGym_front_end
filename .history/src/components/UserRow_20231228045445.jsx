@@ -1,5 +1,5 @@
 export const UserRow = ({handlerRemoveUser, id, username, email}) => {
-    const onRemoreUser = (id) => {
+    const onRemoreUser = ({id}) => {
         handlerRemoveUser(id);
     }
     

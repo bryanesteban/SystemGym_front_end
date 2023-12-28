@@ -43,19 +43,15 @@ export const UsersApp = () =>{
             <h2>Users App</h2>
             <div className="row">   
                 <div className="col">
-                    <UserForm
-                        initialUserForm = { initialUserForm } 
+                    <UserForm 
                         handlerAddUser={ handlerAddUser}
-                    />
+                        initialUserForm />
                 </div>
                 <div className="col">
-                    {users.length === 0 
-                        ? <div className="alert alert-warning"> No hay usuarios en le sistema!</div>
-                        :<UsersList
-                            handlerRemoveUser = { handlerRemoveUser }
-                            users={ users }
-                        />}
-                    
+                    <UsersList
+                        handlerRemoveUser = { handlerRemoveUser }
+                        users={ users }
+                        />
                 </div>
             </div>
         </div>

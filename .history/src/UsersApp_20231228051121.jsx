@@ -52,8 +52,8 @@ export const UsersApp = () =>{
                     {users.length === 0 
                         ? <div className="alert alert-warning"> No hay usuarios en le sistema!</div>
                         :<UsersList
-                            handlerRemoveUser = { handlerRemoveUser }
-                            users={ users }
+                          handlerRemoveUser = { handlerRemoveUser }
+                          users={ users }
                         />}
                     
                 </div>
