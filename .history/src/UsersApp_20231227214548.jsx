@@ -13,7 +13,7 @@ const initiallUsers = [
 ] 
 export const UsersApp = () =>{
     
-    const handlerAddUser = (user) =>{
+    const handLerAddUser = (user) =>{
         console.log(user);
     }
 
@@ -22,11 +22,10 @@ export const UsersApp = () =>{
             <h2>Users App</h2>
             <div className="row">   
                 <div className="col">
-                    <UserForm handlerAddUser={ handlerAddUser }/>
+                    <UserForm />
                 </div>
                 <div className="col">
-                    <UsersList 
-                        users={ initiallUsers } />
+                    <UsersList users={ initiallUsers}/>
                 </div>
             </div>
         </div>

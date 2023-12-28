@@ -28,9 +28,8 @@ export const UserForm = ({ handlerAddUser }) => {
         console.log(userForm);
      
         //guardar el user form en el listado de usuarios
-        setUserForm(userForm);
+
         setUserForm(initialUserForm);
-        
     }
 
     return (

@@ -5,7 +5,7 @@ const initialUserForm = {
     password:'',
     email:'',
 }
-export const UserForm = ({ handlerAddUser }) => {
+export const UserForm = () => {
 
     const [userForm, setUserForm ] = useState(initialUserForm);
 
@@ -19,18 +19,8 @@ export const UserForm = ({ handlerAddUser }) => {
         })
     }
 
-    const onSubmit = (event) =>{
+    const onSubmit= () =>{
         event.preventDefault();
-        if(!username || !password || !email){
-            alert('Debe completar los campos del formulario!')
-            return;
-        }
-        console.log(userForm);
-     
-        //guardar el user form en el listado de usuarios
-        setUserForm(userForm);
-        setUserForm(initialUserForm);
-        
     }
 
     return (

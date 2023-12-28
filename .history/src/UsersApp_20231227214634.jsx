@@ -22,11 +22,12 @@ export const UsersApp = () =>{
             <h2>Users App</h2>
             <div className="row">   
                 <div className="col">
-                    <UserForm handlerAddUser={ handlerAddUser }/>
+                    <UserForm />
                 </div>
                 <div className="col">
                     <UsersList 
-                        users={ initiallUsers } />
+                        users={ initiallUsers }
+                        handlerAddUser={handlerAddUser}/>
                 </div>
             </div>
         </div>

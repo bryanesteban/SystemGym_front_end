@@ -22,7 +22,7 @@ export const UsersApp = () =>{
             <h2>Users App</h2>
             <div className="row">   
                 <div className="col">
-                    <UserForm handlerAddUser={ handlerAddUser }/>
+                    <UserForm />
                 </div>
                 <div className="col">
                     <UsersList 
