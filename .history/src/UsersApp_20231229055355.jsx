@@ -36,7 +36,7 @@ export const UsersApp = () =>{
             type = 'updateUser';
         }
         dispatch({
-          type: type,
+          type:'addUser',
           payload:user, 
         })
     }

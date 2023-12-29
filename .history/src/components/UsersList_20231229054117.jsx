@@ -21,7 +21,6 @@ export const UsersList = ({handlerUserSelectedForm, handlerRemoveUser, users =[]
                             id ={id} 
                             username={username} 
                             email ={email}
-                            password = {password}
                             handlerUserSelectedForm = {handlerUserSelectedForm}
                             handlerRemoveUser = { handlerRemoveUser }
                         />

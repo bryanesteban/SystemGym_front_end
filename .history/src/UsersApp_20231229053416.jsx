@@ -15,7 +15,6 @@ const initiallUsers = [
 ] 
 
 const initialUserForm = {
-    id:0,
     username:'',
     password:'',
     email:'',
@@ -28,15 +27,8 @@ export const UsersApp = () =>{
 
     const handlerAddUser = (user) =>{
         //console.log(user);
-        
-        let type ;
-        if(user.id === 0){
-            type = 'addUser';
-        }else{
-            type = 'updateUser';
-        }
         dispatch({
-          type: type,
+          type:'addUser',
           payload:user, 
         })
     }
@@ -53,6 +45,9 @@ export const UsersApp = () =>{
         //console.log(user);
         setUserSelected({...user})
 
+        dispatch({
+
+        })
     }
 
     return (

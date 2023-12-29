@@ -68,7 +68,7 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
             <button
                 className="btn btn-primary"
                 type="submit">
-                {id > 0 ? 'Editar':'Crear'}
+                Crear
             </button>
         </form>
     )

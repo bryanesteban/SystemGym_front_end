@@ -13,8 +13,7 @@ export const UserRow = ({handlerUserSelectedForm, handlerRemoveUser, id, usernam
                                     onClick={ () => handlerUserSelectedForm({
                                         id:id,
                                         username:username,
-                                        email: email,
-                                        password: password
+                                        email: email
                                     })}
                                 >
                                     update

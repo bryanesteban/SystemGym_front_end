@@ -63,12 +63,12 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
                 onChange={oninputChange}/>
             <input type="hidden"
                    name="id"
-                   value={id}/>
+                   value='id'></input>
 
             <button
                 className="btn btn-primary"
                 type="submit">
-                {id > 0 ? 'Editar':'Crear'}
+                Crear
             </button>
         </form>
     )

@@ -31,12 +31,12 @@ export const UsersApp = () =>{
         
         let type ;
         if(user.id === 0){
-            type = 'addUser';
+            type = 'addUser'
         }else{
-            type = 'updateUser';
+            type = 'updateUser'
         }
         dispatch({
-          type: type,
+          type:'addUser',
           payload:user, 
         })
     }
