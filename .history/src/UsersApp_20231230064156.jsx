@@ -8,7 +8,7 @@ export const UsersApp = () =>{
         users,
         userSelected,
         initialUserForm,
-        visibleForm,
+        
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,

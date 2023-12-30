@@ -1,18 +1,14 @@
+import { useReducer, useState } from "react";
 import { UserForm } from "./components/UserForm";
 import { UsersList } from "./components/UsersList";
-import { useUsers } from "./hooks/useUsers";
+import { usersReducer } from "./reducers/usersReducer";
+
 
 
 export const UsersApp = () =>{
-    const {
-        users,
-        userSelected,
-        initialUserForm,
-        visibleForm,
-        handlerAddUser,
-        handlerRemoveUser,
-        handlerUserSelectedForm,
-    } = useUsers();
+    
+    
+    
 
     return (
         <div className="container my-4">
@@ -26,10 +22,6 @@ export const UsersApp = () =>{
                     />
                 </div>
                 <div className="col">
-                    <button
-                    className="btn btn-primary my-2">
-                        Nuevo Usuario
-                    </button>
                     {users.length === 0 
                         ? <div className="alert alert-warning"> No hay usuarios en le sistema!</div>
                         :<UsersList

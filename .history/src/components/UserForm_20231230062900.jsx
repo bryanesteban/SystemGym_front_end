@@ -77,11 +77,6 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
                 type="submit">
                 {id > 0 ? 'Editar':'Crear'}
             </button>
-            <button
-                    className="btn btn-primary mx-2"
-                    type="button">
-                        Cerrar
-                    </button>
         </form>
     )
 
