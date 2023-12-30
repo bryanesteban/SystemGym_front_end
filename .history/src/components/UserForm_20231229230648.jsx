@@ -26,7 +26,7 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
 
     const onSubmit = (event) =>{
         event.preventDefault();
-        if(!username || (!password && id === 0) || !email){
+        if(!username || !password || !email){
             alert('Debe completar los campos del formulario!')
             return;
         }
@@ -47,13 +47,13 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
                 value={username}
                 onChange={oninputChange}/>
 
-                {id > 0  || <input 
+                {id > 0 ? <input 
                     className="form-control my-3 w-75"
                     placeholder="Password"
                     name="password"
                     value={password}
                     type="password"
-                    onChange={oninputChange}/>}
+                    onChange={oninputChange}/>:}
                 
 
             <input 

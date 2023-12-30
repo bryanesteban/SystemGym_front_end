@@ -26,7 +26,7 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm }) => {
 
     const onSubmit = (event) =>{
         event.preventDefault();
-        if(!username || (!password && id === 0) || !email){
+        if(!username || !password || !email){
             alert('Debe completar los campos del formulario!')
             return;
         }
