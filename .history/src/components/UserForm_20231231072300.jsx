@@ -44,7 +44,7 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm,handlerC
         
     }
     const onCloseForm = () => {
-        setUserForm(initialUserForm);
+        
         handlerCloseForm();
     }
 
@@ -84,7 +84,7 @@ export const UserForm = ({userSelected, handlerAddUser, initialUserForm,handlerC
             <button
                     className="btn btn-primary mx-2"
                     type="button"
-                    onClick={() =>onCloseForm()}>
+                    onClick={() =>onCloseForm}>
                         Cerrar
                     </button>
         </form>

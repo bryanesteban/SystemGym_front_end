@@ -79,11 +79,11 @@ export const useUsers = () => {
 
     }
 
-    const handlerOpenForm = () => {
+    handlerOpenForm = () => {
         setVisibleForm(true);
     }
 
-    const handlerCloseForm = () => {
+    handlerCloseForm = () => {
         setVisibleForm(false);
         setUserSelected(initialUserForm);
     }
@@ -97,7 +97,5 @@ export const useUsers = () => {
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,
-        handlerOpenForm,
-        handlerCloseForm
     }
 }

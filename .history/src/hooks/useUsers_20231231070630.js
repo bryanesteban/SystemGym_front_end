@@ -97,7 +97,5 @@ export const useUsers = () => {
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,
-        handlerOpenForm,
-        handlerCloseForm
     }
 }
