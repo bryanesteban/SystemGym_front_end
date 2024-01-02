@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import { LoginPage } from "./auth/pages/LoginPage";
 import { loginReducers } from "./auth/pages/reducers/loginReducers";
 import { usersReducer } from "./reducers/usersReducer";
-import { UsersPage } from "./pages/UsersPage";
 
 const initialLogin = {
     isAuth:false,
@@ -30,11 +29,8 @@ export const UsersApp = () =>{
 
     return (
         <>
-            {
-            login.isAuth
-            ? <UsersPage/>
-            : <LoginPage/>
-            }
+            <LoginPage/>
+            { /* <UserPage/> */ }
         </>
     );
 }

@@ -2,7 +2,6 @@ import Swal from "sweetalert2";
 import { LoginPage } from "./auth/pages/LoginPage";
 import { loginReducers } from "./auth/pages/reducers/loginReducers";
 import { usersReducer } from "./reducers/usersReducer";
-import { UsersPage } from "./pages/UsersPage";
 
 const initialLogin = {
     isAuth:false,
@@ -16,10 +15,6 @@ export const UsersApp = () =>{
        
         if(username === 'admin' && password=== '12345'){
             const user = {username:'admin'}
-            dispach({
-                type:'login',
-                payload:user,
-            });
             
         }else{
             Swal.fire('Error Login',
@@ -30,11 +25,8 @@ export const UsersApp = () =>{
 
     return (
         <>
-            {
-            login.isAuth
-            ? <UsersPage/>
-            : <LoginPage/>
-            }
+            <LoginPage/>
+            { /* <UserPage/> */ }
         </>
     );
 }

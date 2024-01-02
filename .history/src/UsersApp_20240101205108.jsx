@@ -30,11 +30,11 @@ export const UsersApp = () =>{
 
     return (
         <>
-            {
-            login.isAuth
-            ? <UsersPage/>
-            : <LoginPage/>
-            }
+            {login.isAuth
+            ? <UsersPage
+            : <LoginPage/>}
+            
+            { /* <UserPage/> */ }
         </>
     );
 }

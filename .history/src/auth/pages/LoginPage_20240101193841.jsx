@@ -1,36 +1,14 @@
 import { useState } from "react";
-import Swal from "sweetalert2";
 
 
 const initialLoginForm = {
     username:'',
     password: '',
 }
-export const LoginPage = ({ handlerLogin }) => {
+export const LoginPage = () => {
     
     const [loginForm, setLoginForm] = useState(initialLoginForm);
     const { username, password} = loginForm;
-
-    const onInputChange = ({target}) =>{
-        const {name, value} = target;
-        setLoginForm({
-            ...loginForm,
-            [ name ] : value,
-        })
-    }
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        if(!username || !password){
-            Swal.fire('Error de validacion',
-                       'Usuario y password requeridos',
-                        'error');
-        }
-        handlerLogin({username, password});
-        
-        setLoginForm(initialLoginForm);
-    
-    }
 
     return(
     <div className="modal" style={ {display:"block"}} tabIndex="-1">
@@ -39,22 +17,19 @@ export const LoginPage = ({ handlerLogin }) => {
                     <div className="modal-header">
                         <h5 className="modal-title">Login Page</h5>
                     </div>
-                    <form onSubmit={ onSubmit }>
+                    <form>
 
                         <div className="modal-body">
                             <input 
                                 className="form-control my-3 w-75"
                                 placeholder="Username"
                                 name="username"
-                                value={username}
-                                onChange={ onInputChange }/>
+                                value={username}/>
                             <input 
                                 className="form-control my-3 w-75"
                                 placeholder="Password"
                                 type="password"
-                                name="password"
-                                value={password}
-                                onChange={ onInputChange }/>
+                                name="password"/>
                         </div>
                         <div className="modal-footer">
                             <button  
