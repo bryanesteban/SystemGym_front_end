@@ -26,6 +26,6 @@ export const UserModalForm = ({userSelected, initialUserForm, handlerAddUser, ha
                     </div>
                 </div>
             </div>
+    );  
 
-);
 }
