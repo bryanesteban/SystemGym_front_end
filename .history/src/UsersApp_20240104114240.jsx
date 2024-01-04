@@ -1,7 +1,6 @@
 import { useAuth } from "./auth/hooks/useAuth";
 import { LoginPage } from "./auth/pages/LoginPage";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { UserRoutes } from "./routes/userRoutes";
+import { Routes } from "react-router-dom";
 
 
 
@@ -14,15 +13,14 @@ export const UsersApp = () =>{
             {
                 login.isAuth
                 ? (
-                    <Route path='/*' element={<UserRoutes
+                    <Route path='/*' element={<UserRoutes 
                         login={login} 
-                        handleLogout={handleLogout} />} /> 
-
+                        handleLogout={handleLogout} 
+                    />}/>
                 )
                 : <>
                     <Route path='/login'
                            element={<LoginPage handlerLogin={handlerLogin}/>} />
-                    <Route path='/*' element={<Navigate to="/login"/> } />
                   </>
                         
 
