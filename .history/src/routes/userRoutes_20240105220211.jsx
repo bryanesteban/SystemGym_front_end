@@ -35,14 +35,12 @@ export const UserRoutes = ({login, handleLogout}) =>{
                     handlerCloseForm ={handlerCloseForm}
                 />}/>
                 <Route path="users/register" element={<RegisterPage 
-                    handlerAddUser ={handlerAddUser}
-                    initialUserForm ={initialUserForm}/>}/>
-
+                                                        handlerAddUser ={handlerAddUser}
+                                                        initialUserForm ={initialUserForm}/>}/>
                 <Route path="users/edit/:id" element={<RegisterPage 
-                    users ={users}
-                    handlerAddUser ={handlerAddUser}
-                    initialUserForm ={initialUserForm}/>}/>
-                    
+                                                        users ={users}
+                                                        handlerAddUser ={handlerAddUser}
+                                                        initialUserForm ={initialUserForm}/>}/>
                 <Route path="/" element={<Navigate to="/users"/>}/>
             </Routes>
         

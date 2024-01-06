@@ -9,7 +9,7 @@ export const RegisterPage = ({users=[], handlerAddUser, initialUserForm}) =>{
     const { id } =useParams();
 
     useEffect(() => {
-        console.log(id);
+        console.log(id)
         const user = users.find(u => u.id == id ) || initialUserForm;
         setUserSelected(user);
     }, [id])

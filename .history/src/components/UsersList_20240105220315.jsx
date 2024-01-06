@@ -10,13 +10,13 @@ export const UsersList = ({handlerUserSelectedForm, handlerRemoveUser, users =[]
                    <th>username</th> 
                    <th>email</th> 
                    <th>update</th>
-                   <th>update route</th>
+                   <th>update2</th>
                    <th>remove</th> 
                 </tr>
             </thead>
             <tbody>
                 {
-                    users.map( ({id, username, email} )=> (
+                    users.map( ({id, username, email, password} )=> (
                         <UserRow 
                             key={id} 
                             id ={id} 
