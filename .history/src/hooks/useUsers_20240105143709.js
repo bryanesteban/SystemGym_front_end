@@ -45,7 +45,6 @@ export const useUsers = () => {
             'success'
           )
             handlerCloseForm();
-            navigate('/users');
     }
 
     const handlerRemoveUser = ( id ) => {

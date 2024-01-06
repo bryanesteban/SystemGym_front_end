@@ -9,9 +9,8 @@ export const UserRoutes = ({login, handleLogout}) =>{
             <Navbar  login ={login} handleLogout={handleLogout} />
             <Routes>
                 <Route path="users" element={<UsersPage/>}/>
-                <Route path="users/register" element={<RegisterPage 
-                                                        handlerAddUser ={handlerAddUser}
-                                                        initialUserForm ={initialUserForm}/>}/>
+                <Route path="users/register" element={<RegisterPage handlerAddUser ={handlerAddUser}
+                                                                     initialUserForm ={initialUserForm}/>}/>
                 <Route path="/" element={<Navigate to="/users"/>}/>
             </Routes>
         

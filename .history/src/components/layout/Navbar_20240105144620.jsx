@@ -11,7 +11,7 @@ export const Navbar =({ login, handleLogout }) =>{
             <div className="collapse navbar-collapse " id="navbarNav">
                <ul className="navbar-nav">
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/users">
+                        <NavLink className={nav-link} to="/users">
                             Usuarios
                         </NavLink>
                     </li>
