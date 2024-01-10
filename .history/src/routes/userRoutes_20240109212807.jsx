@@ -12,7 +12,17 @@ export const UserRoutes = ({login, handleLogout}) =>{
         <UserProvider>
             <Navbar  login ={login} handleLogout={handleLogout} />
             <Routes>
-                <Route path="users" element={<UsersPage/>}/>
+                <Route path="users" element={<UsersPage
+                    users={users}
+                    userSelected={userSelected}
+                    initialUserForm={initialUserForm}
+                    visibleForm={visibleForm}
+                    handlerAddUser={handlerAddUser}
+                    handlerRemoveUser={handlerRemoveUser}
+                    handlerUserSelectedForm={handlerUserSelectedForm}
+                    handlerOpenForm={handlerOpenForm}
+                    handlerCloseForm ={handlerCloseForm}
+                    />}/>
                 <Route path="users/register" element={<RegisterPage />}/>
 
                 <Route path="users/edit/:id" element={<RegisterPage />}/>

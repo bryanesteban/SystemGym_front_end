@@ -23,7 +23,8 @@ export const RegisterPage = () =>{
             <h4>{userSelected.id > 0 ? 'Editar':'Registro de usuarios'}</h4>
             <div className="row">
                 <div className="col">
-                    <UserForm  userSelected={userSelected} />
+                    <UserForm 
+                        userSelected={userSelected} />
                 </div>
             </div>
         

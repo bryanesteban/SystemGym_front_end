@@ -7,14 +7,26 @@ export const UsersPage = () =>{
     
     const {
         users,
+        userSelected,
+        initialUserForm,
         visibleForm,
+        handlerAddUser,
+        handlerRemoveUser,
+        handlerUserSelectedForm,
         handlerOpenForm,
+        handlerCloseForm
     } = useContext(UserContext);
 
     return (
         <>
 
-        {!visibleForm || <UserModalForm/>}
+        {!visibleForm || 
+            <UserModalForm
+                userSelected ={userSelected}
+                initialUserForm ={initialUserForm}
+                handlerAddUser ={handlerAddUser}
+                handlerCloseForm ={handlerCloseForm}
+            />}
         <div className="container my-4">
             <h2>Users App</h2>
             <div className="row">   
@@ -28,7 +40,11 @@ export const UsersPage = () =>{
                     </button>}
                     {users.length === 0 
                         ? <div className="alert alert-warning"> No hay usuarios en le sistema!</div>
-                        :<UsersList/>}
+                        :<UsersList
+                            handlerUserSelectedForm={handlerUserSelectedForm}
+                            handlerRemoveUser = { handlerRemoveUser }
+                            users={ users }
+                        />}
                     
                 </div>
             </div>

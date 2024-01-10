@@ -5,6 +5,8 @@ import { UserForm } from "./UserForm";
 
 export const UserModalForm = () =>{
     
+    const { initialUserForm, handlerAddUser} = UserContext(UserContext);
+    
     const {userSelected, handlerCloseForm } = useContext(UserContext);
     
     return(

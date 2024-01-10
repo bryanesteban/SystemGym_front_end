@@ -8,6 +8,8 @@ export const UsersPage = () =>{
     const {
         users,
         visibleForm,
+        handlerRemoveUser,
+        handlerUserSelectedForm,
         handlerOpenForm,
     } = useContext(UserContext);
 
