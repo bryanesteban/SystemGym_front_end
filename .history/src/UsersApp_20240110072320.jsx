@@ -15,12 +15,12 @@ export const UsersApp = () =>{
             {
                 login.isAuth
                 ? (
-                    <Route path='/*' element={<UserRoutes />} /> 
+                    <Route path='/*' element={<UserRoutes login={login}  />} /> 
 
                 )
                 : <>
                     <Route path='/login'
-                           element={<LoginPage/>} />
+                           element={<LoginPage handlerLogin={handlerLogin}/>} />
                     <Route path='/*' element={<Navigate to="/login"/> } />
                   </>
                         

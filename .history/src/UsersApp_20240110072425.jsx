@@ -15,7 +15,7 @@ export const UsersApp = () =>{
             {
                 login.isAuth
                 ? (
-                    <Route path='/*' element={<UserRoutes />} /> 
+                    <Route path='/*' element={<UserRoutes login={login}  />} /> 
 
                 )
                 : <>
