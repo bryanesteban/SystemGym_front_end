@@ -21,11 +21,6 @@ export const useUsers = () => {
 
     const getUsers = async()  => {
         const result = await findAll();
-        console.log(result);
-        dispatch({
-            type: 'loadingUsers',
-            payload: result.data
-        })
 
     }
 
@@ -103,7 +98,6 @@ export const useUsers = () => {
         handlerRemoveUser,
         handlerUserSelectedForm,
         handlerOpenForm,
-        handlerCloseForm,
-        getUsers,
+        handlerCloseForm
     }
 }
