@@ -12,19 +12,11 @@ const initialUserForm = {
     email:'',
 }
 
-const initialErrors = {
-    username:'',
-    password:'',
-    email:'',
-}
-
 export const useUsers = () => {
 
     const [users,dispatch] = useReducer(usersReducer, initiallUsers);
     const [userSelected, setUserSelected] = useState(initialUserForm);
     const [visibleForm, setVisibleForm] = useState(false);
-
-    const [errors, setErrors] = useState(initialErrors);
     const navigate = useNavigate();
 
     const getUsers = async()  => {
@@ -42,7 +34,10 @@ export const useUsers = () => {
 
         let response;
 
-    try {
+        try {
+            
+        
+
 
         if(user.id === 0){
             response = await save(user);
@@ -69,7 +64,7 @@ export const useUsers = () => {
             navigate('/users');
 
         } catch (error) {
-            console.error(error);
+            
         }
     }
 
@@ -123,7 +118,6 @@ export const useUsers = () => {
         userSelected,
         initialUserForm,
         visibleForm,
-        errors,
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,

@@ -24,7 +24,7 @@ export const useUsers = () => {
     const [userSelected, setUserSelected] = useState(initialUserForm);
     const [visibleForm, setVisibleForm] = useState(false);
 
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors, setErrors] = useState(initialErrors)
     const navigate = useNavigate();
 
     const getUsers = async()  => {
@@ -123,7 +123,6 @@ export const useUsers = () => {
         userSelected,
         initialUserForm,
         visibleForm,
-        errors,
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,

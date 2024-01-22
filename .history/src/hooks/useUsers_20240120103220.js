@@ -123,7 +123,6 @@ export const useUsers = () => {
         userSelected,
         initialUserForm,
         visibleForm,
-        errors,
         handlerAddUser,
         handlerRemoveUser,
         handlerUserSelectedForm,
