@@ -70,9 +70,7 @@ export const useUsers = () => {
 
         } catch (error) {
             if(error.response && error.response.status == 400){
-                setErrors(error.response.data);
-            }else{
-                throw error;
+                console.log(error.response.data);
             }
         }
     }
