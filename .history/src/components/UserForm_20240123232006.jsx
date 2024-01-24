@@ -77,7 +77,7 @@ export const UserForm = ({userSelected,  handlerCloseForm, errors }) => {
                     value={password}
                     type="password"
                     onChange={oninputChange}/>}
-                    <p className="text-danger">{ errors?.password}</p>
+                
 
             <input 
                 className="form-control my-3 w-75"
@@ -85,7 +85,6 @@ export const UserForm = ({userSelected,  handlerCloseForm, errors }) => {
                 value={email}
                 name="email"
                 onChange={oninputChange}/>
-                <p className="text-danger">{ errors?.email}</p>
             <input type="hidden"
                    name="id"
                    value={id}/>
