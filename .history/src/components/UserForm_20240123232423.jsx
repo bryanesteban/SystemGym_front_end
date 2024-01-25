@@ -52,6 +52,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
      
         //guardar el user form en el listado de usuarios
         handlerAddUser(userForm);
+        setUserForm(initialUserForm);
         
     }
     const onCloseForm = () => {

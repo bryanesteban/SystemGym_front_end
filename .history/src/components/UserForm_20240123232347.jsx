@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { UserContext } from "../context/UserContext";
 
 
-export const UserForm = ({userSelected,  handlerCloseForm }) => {
+export const UserForm = ({userSelected,  handlerCloseForm, errors }) => {
 
     const {handlerAddUser, initialUserForm, errors} = useContext(UserContext);
 
@@ -52,6 +52,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
      
         //guardar el user form en el listado de usuarios
         handlerAddUser(userForm);
+        setUserForm(initialUserForm);
         
     }
     const onCloseForm = () => {
