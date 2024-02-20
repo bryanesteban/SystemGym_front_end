@@ -34,20 +34,14 @@ export const useAuth = () =>{
           sessionStorage.setItem('login', JSON.stringify({
             isAuth: true,
             isAdmin: claims.isAdmin,
-            user,
+            user: user,
           }));
           sessionStorage.setItem('token',`Bearer ${token}`);
           navigate('/users');
         }catch(error){
-            if(error.response?.status === 401){
-                Swal.fire('Error Login','Usuario o password invalidos','error');
-                
-            }else if (error.response?.status === 403){
-                Swal.fire('Error Login','No tiene acceso al recurso o permisos ','error');
-
-            }else{
-                throw error;
-            }
+            Swal.fire('Error Login',
+                       'Usuario o password invalidos',
+                        'error');
         }
     }
 

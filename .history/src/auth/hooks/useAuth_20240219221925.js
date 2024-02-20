@@ -34,7 +34,7 @@ export const useAuth = () =>{
           sessionStorage.setItem('login', JSON.stringify({
             isAuth: true,
             isAdmin: claims.isAdmin,
-            user,
+            user: user,
           }));
           sessionStorage.setItem('token',`Bearer ${token}`);
           navigate('/users');

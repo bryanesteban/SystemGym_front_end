@@ -11,8 +11,6 @@ export const loginReducers = (state={}, action) =>{
         case 'logout':
             return{
                 isAuth:false,
-                isAdmin:false,
-                user: undefined
             };
         default:
             return state;

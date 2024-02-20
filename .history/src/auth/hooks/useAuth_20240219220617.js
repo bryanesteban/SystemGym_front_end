@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const initialLogin = JSON.parse(sessionStorage.getItem('login')) || {
 
     isAuth:false,
-    isAdmin:false,
     user: undefined,
 }
 
@@ -23,31 +22,22 @@ export const useAuth = () =>{
 
             const response = await loginUser({username, password});
             const token = response.data.token;
-            const claims =JSON.parse(window.atob(token.split(".")[1])) ;
+            const claims =window.atob(token.split(".")[1]) ;
             console.log(claims);
             const user = {username: response.data.username}
             dispatch({
                 type:'login',
-                payload:{user,isAdmin : claims.isAdmin},
-                
+                payload:user,
             });
           sessionStorage.setItem('login', JSON.stringify({
             isAuth: true,
-            isAdmin: claims.isAdmin,
-            user,
+            user: user,
           }));
-          sessionStorage.setItem('token',`Bearer ${token}`);
           navigate('/users');
         }catch(error){
-            if(error.response?.status === 401){
-                Swal.fire('Error Login','Usuario o password invalidos','error');
-                
-            }else if (error.response?.status === 403){
-                Swal.fire('Error Login','No tiene acceso al recurso o permisos ','error');
-
-            }else{
-                throw error;
-            }
+            Swal.fire('Error Login',
+                       'Usuario o password invalidos',
+                        'error');
         }
     }
 
@@ -57,9 +47,7 @@ export const useAuth = () =>{
 
         })
 
-        sessionStorage.removeItem('token');
         sessionStorage.removeItem('login');
-        sessionStorage.clear;
 
     }
     
