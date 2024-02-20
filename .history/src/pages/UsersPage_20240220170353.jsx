@@ -29,7 +29,7 @@ export const UsersPage = () =>{
                     
                     
                 <div className="col">
-                    {(visibleForm || !login.isAdmin)  || <button
+                    {visibleForm  || <button
                     className="btn btn-primary my-2"
                     onClick={handlerOpenForm}>
                         Nuevo Usuario

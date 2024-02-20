@@ -104,7 +104,7 @@ export const useUsers = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Si, eliminar!"
-          }).then( async (result) => {
+          }).then(async(result) => {
             if (result.isConfirmed) {
 
                 try {

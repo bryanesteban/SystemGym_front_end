@@ -54,7 +54,6 @@ export const update = async({id, username, email}) => {
 }
 
 export const remove = async(id) =>{
-    // eslint-disable-next-line no-useless-catch
     try {
         await axios.delete(`${BASE_URL}/${id}`, config());
     } catch (error) {

@@ -17,10 +17,13 @@ export const useAuth = () =>{
     
     const handlerLogin = async ({username, password}) => {
 
+       
+
         try{
+
             const response = await loginUser({username, password});
             const token = response.data.token;
-            const claims =JSON.parse(window.atob(token.split(".")[1])) ;
+            const claims =JSON.parse(window.atob(token.split("\\.")[1])) ;
             console.log(claims);
             const user = {username: response.data.username}
             dispatch({

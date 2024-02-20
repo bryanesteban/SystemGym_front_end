@@ -91,7 +91,7 @@ export const useUsers = () => {
         }
     }
 
-    const handlerRemoveUser =  ( id ) => {
+    const handlerRemoveUser = ( id ) => {
         
         
         if(!login.isAdmin ) return ;
@@ -104,12 +104,12 @@ export const useUsers = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Si, eliminar!"
-          }).then( async (result) => {
+          }).then((result) => {
             if (result.isConfirmed) {
 
                 try {
                     
-                    await remove(id);
+                    remove(id);
                     dispatch({
                         type:'removeUser',
                         payload:id,

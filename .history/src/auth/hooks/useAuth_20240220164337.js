@@ -16,8 +16,9 @@ export const useAuth = () =>{
     const navigate = useNavigate();
     
     const handlerLogin = async ({username, password}) => {
-
+        
         try{
+
             const response = await loginUser({username, password});
             const token = response.data.token;
             const claims =JSON.parse(window.atob(token.split(".")[1])) ;

@@ -3,13 +3,10 @@ import axios from "axios";
 const BASE_URL = 'http://localhost:8080/users';
 
 
-const config = () => {
-    return{
-
-        headers: {
-            "Authorization": sessionStorage.getItem('token'),
-            "Content-Type" : "application/json",
-        }
+const config = {
+    Headers: {
+        "Authorization": sessionStorage.getItem('token'),
+        "Content-Type" : "application/json",
     }
 
 }
@@ -34,7 +31,7 @@ export const save = async ({username, email, password}) => {
             username,
             email,
             password,
-        }, config());
+        });
     }catch(error){
         throw error;
     }
@@ -47,17 +44,16 @@ export const update = async({id, username, email}) => {
             username,
             email,
            // password: 'nothing',
-        }, config());
+        });
     } catch (error) {
         throw error;
     }
 }
 
 export const remove = async(id) =>{
-    // eslint-disable-next-line no-useless-catch
     try {
-        await axios.delete(`${BASE_URL}/${id}`, config());
+        await axios.delete(`${BASE_URL}/${id}`);
     } catch (error) {
-        throw error;
+        console.error(error);
     }
 }
