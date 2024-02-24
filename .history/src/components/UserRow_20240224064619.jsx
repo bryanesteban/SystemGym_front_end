@@ -24,7 +24,7 @@ export const UserRow = ({ id, username, email, admin}) => {
                                             id:id,
                                             username:username,
                                             email: email,
-                                            admin : admin
+                                            admin
                                         })}
                                         >
                                         update

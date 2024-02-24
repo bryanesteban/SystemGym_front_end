@@ -72,20 +72,19 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
                 name="email"
                 onChange={oninputChange}/>
                 <p className="text-danger">{ errors?.email}</p>
-            
-            <div className="my-3 form-check">
-                    <input type="checkbox"
-                        name="admin"
-                        checked={admin}
-                        className="form-check-input"
-                        onChange={onCheckboxChange}
-                    />
-                    <label className="form-check-label">Admin</label>
-            </div>
-
             <input type="hidden"
                    name="id"
                    value={id}/>
+
+            <div className="my-3 form-check">
+                    <input type="checkbox"
+                    name="admin"
+                    checked={admin}
+                    className="form-check-input"
+                    onChange={onCheckboxChange}
+                    />
+                    <label className="form-check-label">Admin</label>
+            </div>
 
             <button
                 className="btn btn-primary"
