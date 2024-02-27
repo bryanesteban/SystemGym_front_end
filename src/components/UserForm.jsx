@@ -30,8 +30,10 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
 
     const onCheckboxChange = () => {
         setChecked(!checked);
-        setUserForm({...UserForm,
-                    admin:checked,})
+        setUserForm({
+            ...UserForm,
+            admin:checked,
+        })
     }
 
     const onSubmit = (event) =>{

@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react"
-import Swal from "sweetalert2";
 import { UserContext } from "../context/UserContext";
 
 
+// eslint-disable-next-line react/prop-types
 export const UserForm = ({userSelected,  handlerCloseForm }) => {
 
     const {handlerAddUser, initialUserForm, errors} = useContext(UserContext);
 
     const [userForm, setUserForm ] = useState(initialUserForm);
-
-    const {id, username, password, email} = userForm;
+    const [checked, setChecked] = useState(userForm.admin);
+    const {id, username, password, email, admin} = userForm;
 
     useEffect(() => {
         setUserForm({
@@ -25,6 +25,14 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
         setUserForm({
             ...userForm,
             [name]:value,
+        })
+    }
+
+    const onCheckboxChange = () => {
+        setChecked(!checked);
+        setUserForm({
+            ...UserForm,
+            admin:checked,
         })
     }
 
@@ -66,6 +74,17 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
                 name="email"
                 onChange={oninputChange}/>
                 <p className="text-danger">{ errors?.email}</p>
+            
+            <div className="my-3 form-check">
+                    <input type="checkbox"
+                        name="admin"
+                        checked={admin}
+                        className="form-check-input"
+                        onChange={onCheckboxChange}
+                    />
+                    <label className="form-check-label">Admin</label>
+            </div>
+
             <input type="hidden"
                    name="id"
                    value={id}/>
