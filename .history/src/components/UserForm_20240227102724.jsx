@@ -14,7 +14,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
     useEffect(() => {
         setUserForm({
             ...userSelected,
-            //password:'',
+            password:'',
         });
     }, [userSelected]);
 
@@ -31,7 +31,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
     const onCheckboxChange = () => {
         setChecked(!checked);
         setUserForm({
-            ...userForm,
+            ...UserForm,
             admin:checked,
         })
     }

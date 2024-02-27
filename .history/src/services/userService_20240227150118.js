@@ -5,15 +5,16 @@ const BASE_URL = '';
 
 export const findAll = async() =>{
 
+    // eslint-disable-next-line no-useless-catch
     try{
         const response = await usersApi.get(BASE_URL);
         return response;
 
     } catch(error){
-        console.error(error);
         throw error;
     }
 
+    return undefined;
 }
 
 export const save = async ({username, email, password, admin}) => {
@@ -45,7 +46,7 @@ export const update = async({id, username, email, admin}) => {
 }
 
 export const remove = async(id) =>{
-   // eslint-disable-next-line no-useless-catch
+    // eslint-disable-next-line no-useless-catch
     try {
         await usersApi.delete(`${BASE_URL}/${id}`);
     } catch (error) {
