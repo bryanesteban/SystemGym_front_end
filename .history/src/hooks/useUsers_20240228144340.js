@@ -120,8 +120,10 @@ export const useUsers = () => {
                 try {
                     
                     await remove(id);
-
-                    dispatch(removeUser(id));
+                    dispatch({
+                        type:'removeUser',
+                        payload:id,
+                    })
                   Swal.fire({
                     title: "Usuario Eliminado!",
                     text: "EL usuario ha sido elimiado con exito.",

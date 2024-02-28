@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { findAll, remove, save, update } from "../services/userService";
 import { AuthContext } from "../auth/context/AuthContext";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser, updateUser, loadingUsers } from "../store/slices/users/usersSlice";
+import { useDispatch } from "react-redux";
 
 const initiallUsers = [] 
 
@@ -26,8 +25,6 @@ const initialErrors = {
 export const useUsers = () => {
 
     //const [users,dispatch] = useReducer(usersReducer, initiallUsers);
-    const {users} = useSelector(state => state.users);
-    const dispatch = useDispatch ();
     const [userSelected, setUserSelected] = useState(initialUserForm);
     const [visibleForm, setVisibleForm] = useState(false);
 
@@ -40,11 +37,13 @@ export const useUsers = () => {
 
         try {
             
-           
+           const dispatch = useDispatch ();
             const result = await findAll();
             console.log(result);
-            dispatch(loadingUsers(result.data));
-                
+            dispatch({
+                type: 'loadingUsers',
+                payload: result.data
+            });
         } catch (error) {
             if(error.response?.status == 401){
                 handleLogout();
@@ -64,12 +63,15 @@ export const useUsers = () => {
 
         if(user.id === 0){
             response = await save(user);
-            dispatch(addUser(response.data))
         }else
         {
             response = await update(user);
-            dispatch(updateUser(response.data));
         }
+
+        dispatch({
+          type: (user.id === 0) ? 'addUser' : 'updateUser',
+          payload:response.data, 
+        });
 
         Swal.fire(
             (user.id === 0) ? 
@@ -120,8 +122,10 @@ export const useUsers = () => {
                 try {
                     
                     await remove(id);
-
-                    dispatch(removeUser(id));
+                    dispatch({
+                        type:'removeUser',
+                        payload:id,
+                    })
                   Swal.fire({
                     title: "Usuario Eliminado!",
                     text: "EL usuario ha sido elimiado con exito.",

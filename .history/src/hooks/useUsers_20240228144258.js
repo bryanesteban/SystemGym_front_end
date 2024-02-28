@@ -64,12 +64,17 @@ export const useUsers = () => {
 
         if(user.id === 0){
             response = await save(user);
-            dispatch(addUser(response.data))
+            dispatch(addUser({...response.data}))
         }else
         {
             response = await update(user);
-            dispatch(updateUser(response.data));
+            dispatch(updateUser({...response.data}));
         }
+
+        dispatch({
+          type: (user.id === 0) ? 'addUser' : 'updateUser',
+          payload:response.data, 
+        });
 
         Swal.fire(
             (user.id === 0) ? 
@@ -120,8 +125,10 @@ export const useUsers = () => {
                 try {
                     
                     await remove(id);
-
-                    dispatch(removeUser(id));
+                    dispatch({
+                        type:'removeUser',
+                        payload:id,
+                    })
                   Swal.fire({
                     title: "Usuario Eliminado!",
                     text: "EL usuario ha sido elimiado con exito.",
