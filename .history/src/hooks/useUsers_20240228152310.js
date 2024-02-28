@@ -1,10 +1,10 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { findAll, remove, save, update } from "../services/userService";
 import { AuthContext } from "../auth/context/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import { initialUserForm, addUser, removeUser, updateUser, loadingUsers, onUserSelectedForm, onOpenForm, onCloseForm, loadingError } from "../store/slices/users/usersSlice";
+import { initialUserForm, addUser, removeUser, updateUser, loadingUsers, onUserSelectedForm, onOpenForm, onCloseForm } from "../store/slices/users/usersSlice";
 
 
 export const useUsers = () => {
@@ -69,13 +69,13 @@ export const useUsers = () => {
 
         } catch (error) {
             if(error.response && error.response.status == 400){
-                dispatch(loadingError(error.response.data));
+                setErrors(error.response.data);
             }else if (error.response && error.response.status == 500 &&
                 error.response.data?.message?.includes('constraint') ){
                 if(error.response.data?.message?.includes('UK_username'))
-                dispatch(loadingError({username: 'El username ya existe!'}));
+                    setErrors({username: 'El username ya existe!'});
                 if(error.response.data?.message?.includes('UK_email'))
-                dispatch(loadingError({username: 'El email ya existe!'}));
+                    setErrors({username: 'El email ya existe!'});
                 } else if(error.response?.status == 401)
                 {
                     handleLogout();
@@ -138,7 +138,7 @@ export const useUsers = () => {
         //setVisibleForm(false);
         //setUserSelected(initialUserForm);
         dispatch(onCloseForm());
-        dispatch(loadingError({}));
+        setErrors({});
     }
 
 

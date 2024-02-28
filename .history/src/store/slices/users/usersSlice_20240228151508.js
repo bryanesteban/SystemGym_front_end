@@ -8,19 +8,12 @@ export const initialUserForm = {
     admin: false,
 }
 
-const initialErrors = {
-    username:'',
-    password:'',
-    email:'',
-}
-
 export const usersSlice = createSlice({
     name: 'users',
     initialState: {
         users:[],
         userSelected: initialUserForm,
         visibleForm: false,
-        errors: initialErrors,
 
     },
     reducers: {
@@ -67,9 +60,6 @@ export const usersSlice = createSlice({
         onCloseForm : (state) => {
             state.visibleForm = false;
             state.userSelected = initialUserForm;
-        },
-        loadingError: (state, {payload}) => {
-            state.errors = payload;
         }
     }
 
@@ -80,9 +70,8 @@ export const {
     removeUser, 
     updateUser, 
     loadingUsers,
-    onUserSelectedForm,
-    onOpenForm,
-    onCloseForm,
-    loadingError,
+    onUserSelectedForm: OnUserSelectedForm,
+    onOpenForm: OnOpenForm,
+    onCloseForm: OnCloseForm
 } = usersSlice.actions
 

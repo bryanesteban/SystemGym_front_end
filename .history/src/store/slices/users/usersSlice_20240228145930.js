@@ -1,17 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const initialUserForm = {
+const initialUserForm = {
     id:0,
     username:'',
     password:'',
     email:'',
     admin: false,
-}
-
-const initialErrors = {
-    username:'',
-    password:'',
-    email:'',
 }
 
 export const usersSlice = createSlice({
@@ -20,7 +14,6 @@ export const usersSlice = createSlice({
         users:[],
         userSelected: initialUserForm,
         visibleForm: false,
-        errors: initialErrors,
 
     },
     reducers: {
@@ -32,7 +25,6 @@ export const usersSlice = createSlice({
                 }
             ];
             state.userSelected = initialUserForm;
-            state.visibleForm = false;
         },
         removeUser: (state,action) =>{
             state.users = state.users.filter(user => user.id !== action.payload);
@@ -46,30 +38,11 @@ export const usersSlice = createSlice({
                     }
                 }
                 return u; 
-            });
-            state.userSelected = initialUserForm;
-            state.visibleForm = false;
+            })
         },
 
         loadingUsers: (state, action) => {
             state.users = action.payload;
-        },
-
-        onUserSelectedForm: (state, action) => {
-            state.userSelected = action.payload;
-            state.visibleForm = true;
-        },
-
-        onOpenForm: (state) => {
-            state.visibleForm = true;
-        },
-
-        onCloseForm : (state) => {
-            state.visibleForm = false;
-            state.userSelected = initialUserForm;
-        },
-        loadingError: (state, {payload}) => {
-            state.errors = payload;
         }
     }
 
@@ -79,10 +52,6 @@ export const {
     addUser,
     removeUser, 
     updateUser, 
-    loadingUsers,
-    onUserSelectedForm,
-    onOpenForm,
-    onCloseForm,
-    loadingError,
+    loadingUsers
 } = usersSlice.actions
 

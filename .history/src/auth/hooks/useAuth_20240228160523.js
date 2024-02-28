@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { loginUser } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { onLogin, onLogout } from "../../store/slices/auth/authSlice";
 
 
@@ -9,7 +9,6 @@ import { onLogin, onLogout } from "../../store/slices/auth/authSlice";
 export const useAuth = () =>{
 
     const dispatch = useDispatch();
-    const{user, isAdmin, isAuth} = useSelector(state => state.auth);
     //const [login, dispatch] = useReducer(loginReducers, initialLogin);
     const navigate = useNavigate();
     
@@ -58,11 +57,7 @@ export const useAuth = () =>{
     }
     
     return {
-        login: {
-            user,
-            isAdmin,
-            isAuth
-        },
+        login,
         handlerLogin,
         handleLogout,
     };

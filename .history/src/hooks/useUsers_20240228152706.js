@@ -138,7 +138,7 @@ export const useUsers = () => {
         //setVisibleForm(false);
         //setUserSelected(initialUserForm);
         dispatch(onCloseForm());
-        dispatch(loadingError({}));
+        setErrors({});
     }
 
 
