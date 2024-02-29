@@ -1,4 +1,6 @@
-import { useState } from "react";
+import {  useState } from "react";
+import Swal from "sweetalert2";
+import { useAuth } from "../hooks/useAuth";
 
 
 const initialLoginForm = {
@@ -7,11 +9,29 @@ const initialLoginForm = {
 }
 export const LoginPage = () => {
     
+    const { handlerLogin } = useAuth();
     const [loginForm, setLoginForm] = useState(initialLoginForm);
     const { username, password} = loginForm;
 
-    const onInputChange = (target) =>{
+    const onInputChange = ({target}) =>{
+        const {name, value} = target;
+        setLoginForm({
+            ...loginForm,
+            [ name ] : value,
+        })
+    }
 
+    const onSubmit = (event) => {
+        event.preventDefault();
+        if(!username || !password){
+            Swal.fire('Error de validacion',
+                       'Usuario y password requeridos',
+                        'error');
+        }
+        handlerLogin({username, password});
+        
+        setLoginForm(initialLoginForm);
+    
     }
 
     return(
@@ -21,7 +41,7 @@ export const LoginPage = () => {
                     <div className="modal-header">
                         <h5 className="modal-title">Login Page</h5>
                     </div>
-                    <form>
+                    <form onSubmit={ onSubmit }>
 
                         <div className="modal-body">
                             <input 

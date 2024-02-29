@@ -1,6 +1,7 @@
 import { LoginPage } from "./auth/pages/LoginPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { UserRoutes } from "./routes/userRoutes";
+import { useAuth } from "./auth/hooks/useAuth";
 import { useSelector } from "react-redux";
 
 export const AppRoutes = () => {

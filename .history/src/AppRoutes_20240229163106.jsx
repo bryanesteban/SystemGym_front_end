@@ -1,16 +1,16 @@
 import { LoginPage } from "./auth/pages/LoginPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { UserRoutes } from "./routes/userRoutes";
-import { useSelector } from "react-redux";
+import { useAuth } from "./auth/hooks/useAuth";
 
 export const AppRoutes = () => {
-    const {isAuth} = useSelector(state => state.auth);
+    const {login} = useAuth();
 
     //aqui puede ir un useffect para validar sesion cada hora
     return (
         <Routes>
             {
-                isAuth
+                login.isAuth
                 ? (
                     <Route path='/*' element={<UserRoutes />} /> 
 

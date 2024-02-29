@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom"
 import { UsersPage } from "../pages/UsersPage"
 import { Navbar } from "../components/layout/Navbar"
 import { RegisterPage } from "../pages/RegisterPage"
+import { useAuth } from "../auth/hooks/useAuth"
 import { useSelector } from "react-redux"
 
 export const UserRoutes = () =>{
