@@ -1,5 +1,5 @@
 import axios from "axios";
-import generalApi from "./generalApi";
+import generalApi from "./apiGenral";
 
 const usersApi = axios.create({
     baseURL : generalApi+'/users'
