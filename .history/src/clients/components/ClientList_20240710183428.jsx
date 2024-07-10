@@ -19,8 +19,8 @@ export const ClientList = () => {
                 <th>Direccion</th>
                 <th>Telefono</th>
                 <th>correo electronico</th>
-                <th>Fecha de Inscripcion</th>
-                <th>Fecha de Cumpleaños</th>
+                <th>F. de Inscripcion</th>
+                <th>fecha de Cumpleaños</th>
             </thead>
             <tbody>
                 {  

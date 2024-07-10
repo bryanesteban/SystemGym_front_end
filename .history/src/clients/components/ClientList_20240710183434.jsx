@@ -20,7 +20,7 @@ export const ClientList = () => {
                 <th>Telefono</th>
                 <th>correo electronico</th>
                 <th>Fecha de Inscripcion</th>
-                <th>Fecha de Cumpleaños</th>
+                <th>fecha de Cumpleaños</th>
             </thead>
             <tbody>
                 {  
