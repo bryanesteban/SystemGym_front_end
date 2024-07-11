@@ -38,24 +38,12 @@ export const clientsSlice = createSlice({
         },
 
         onOpenClientForm: (state) => {
-            state.visibleClientForm = true;
-        },
-
-        onCloseClientForm : (state) => {
-            state.visibleClientForm = false;
-            state.userSelected = initialClientForm;
-        },
-
-        loadingClientError: (state, {payload}) => {
-            state.errors = payload;
+            state.visibleForm = true;
         },
     }
 });
 
 
 export const {
-    loadingClient,
-    onOpenClientForm,
-    onCloseClientForm,
-    loadingClientError
+    loadingClient
 } = clientsSlice.actions

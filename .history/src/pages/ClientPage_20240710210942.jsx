@@ -11,9 +11,7 @@ export const ClientPage = () => {
     
     
     
-    const {clients,
-           getClients,
-           handlerOpenClientForm } = useClients();
+    const {clients, getClients} = useClients();
 
     useEffect(() => {
         getClients();
@@ -28,7 +26,7 @@ export const ClientPage = () => {
             {
                 <button 
                     className="btn btn-primary my-2"
-                    onClick={handlerOpenClientForm}>
+                    >
                     Nuevo Cliente
                 </button>
             }

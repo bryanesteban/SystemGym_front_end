@@ -11,9 +11,7 @@ export const ClientPage = () => {
     
     
     
-    const {clients,
-           getClients,
-           handlerOpenClientForm } = useClients();
+    const {clients, getClients} = useClients();
 
     useEffect(() => {
         getClients();
@@ -25,14 +23,6 @@ export const ClientPage = () => {
         <div className="row">
 
             <div className="col">
-            {
-                <button 
-                    className="btn btn-primary my-2"
-                    onClick={handlerOpenClientForm}>
-                    Nuevo Cliente
-                </button>
-            }
-
 
             { clients.length === 0
                     ?   <div className="alert alert-warning"> No existen clientes registrado</div>

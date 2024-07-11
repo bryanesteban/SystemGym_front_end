@@ -44,7 +44,6 @@ export const useClients = () => {
     return {
         clients,
         errors,
-        visibleClientForm,
         getClients,
         handlerOpenClientForm,
         handlerCloseForm,

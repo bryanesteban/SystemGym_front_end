@@ -1,6 +1,6 @@
 import { findAllClient } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError } from '../store/slices/clients/clienstSlice';
+import { loadingClient, onOpenClientForm } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
 
 export const useClients = () => {
@@ -33,21 +33,12 @@ export const useClients = () => {
         //setVisibleForm(true);
         dispatch(onOpenClientForm());
     }
-
-    const handlerCloseForm = () => {
-        //setVisibleForm(false);
-        //setUserSelected(initialUserForm);
-        dispatch(onCloseClientForm());
-        dispatch(loadingClientError({}));
-    }
   
     return {
         clients,
-        errors,
-        visibleClientForm,
+        error,
         getClients,
         handlerOpenClientForm,
-        handlerCloseForm,
 
     }
 }
