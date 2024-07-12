@@ -34,7 +34,7 @@ export const clientsSlice = createSlice({
     },
     reducers:{
         addClient: (state, action) => {
-            state.clients = [
+            state.users = [
                 ...state.clients,
                 {
                     ...action.payload
