@@ -18,11 +18,11 @@ export const findAllClient = async() => {
 
 }
 
-export const save = async ({identification, name, lastname, address, phone_number, email, date_birthday}) => {
+export const save = async ({identification, name, lastname, address, phone_number, email, inscription_date, date_birthday}) => {
     
-    const DateNow = Date.now(); 
-    const inscription_date = DateNow.now();
-
+    const DateNow = Date.now();
+    
+    
     // eslint-disable-next-line no-useless-catch
     try {
         return await generalApi.post(BASE_URL,{

@@ -14,10 +14,10 @@ export const ClientAdd = ({clientSelected}) => {
 
     useEffect(() => {
         setClientForm({
-            ...clientSelected,
+            ...userSelected,
             //password:'',
         });
-    }, [clientSelected]);
+    }, [userSelected]);
 
     const onSubmit = (event) =>{
         event.preventDefault();

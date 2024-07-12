@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useClients } from '../../hooks/useClients';
 
 
-export const ClientAdd = ({clientSelected}) => {
+export const ClientAdd = () => {
 
 
     const {initialClientForm, error, handlerAddClient} = useClients();
 
     const [clientForm, setClientForm] = useState(initialClientForm);
-    const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
-    
-
-
-    useEffect(() => {
-        setClientForm({
-            ...clientSelected,
-            //password:'',
-        });
-    }, [clientSelected]);
-
+    const {identification, name, lastName, address, phone_number, email } = clientForm;
     const onSubmit = (event) =>{
         event.preventDefault();
      
@@ -90,11 +80,10 @@ export const ClientAdd = ({clientSelected}) => {
         <input
             className="form-control my-3 w-75"
             placeholder=""
-            type="date"
-            name="date_birthday"
-            value={date_birthday}
+            name="identification"
+            value={identification}
             onChange={onInputChange}/>
-        <p className="text-danger">{ error?.date_birthday}</p>
+        <p className="text-danger">{ error?.identification}</p>
 
     </form>
   )

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 
 import { useClients } from '../hooks/useClients';
 import { ClientList } from '../clients/components/ClientList';
-import { ClientModalForm } from '../clients/components/ClientModalForm';
 
 export const ClientPage = () => {
 
@@ -23,18 +22,19 @@ export const ClientPage = () => {
 
     return (
     <>
-       {!visibleClientForm || <ClientModalForm/>} 
+       {!visibleClientForm || } 
         <div className="container my-4">
             <h2>Clientes</h2>
             <div className="row">
 
                 <div className="col">
-                   {visibleClientForm || <button 
+                {
+                    <button 
                         className="btn btn-primary my-2"
                         onClick={handlerOpenClientForm}>
                         Nuevo Cliente
-                    </button>}
-                
+                    </button>
+                }
 
 
                 { clients.length === 0

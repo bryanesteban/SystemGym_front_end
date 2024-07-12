@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 export const useClients = () => {
     
     const dispatch = useDispatch();
-    const {clients, initialClientForm, clientSelected, visibleClientForm,addClient, errors} = useSelector(state => state.clients);
+    const {clients, visibleClientForm,addClient, errors} = useSelector(state => state.clients);
 
     const getClients = async() => {
 
@@ -63,8 +63,6 @@ export const useClients = () => {
         clients,
         errors,
         visibleClientForm,
-        clientSelected,
-        initialClientForm,
         getClients,
         handlerOpenClientForm,
         handlerCloseForm,

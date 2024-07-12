@@ -70,6 +70,5 @@ export const {
     loadingClient,
     onOpenClientForm,
     onCloseClientForm,
-    loadingClientError,
-    clientSelected
+    loadingClientError
 } = clientsSlice.actions

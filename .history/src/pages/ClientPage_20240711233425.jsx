@@ -29,12 +29,13 @@ export const ClientPage = () => {
             <div className="row">
 
                 <div className="col">
-                   {visibleClientForm || <button 
+                {
+                    <button 
                         className="btn btn-primary my-2"
                         onClick={handlerOpenClientForm}>
                         Nuevo Cliente
-                    </button>}
-                
+                    </button>
+                }
 
 
                 { clients.length === 0

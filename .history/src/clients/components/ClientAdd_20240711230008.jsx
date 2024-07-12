@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useClients } from '../../hooks/useClients';
 
 
-export const ClientAdd = ({clientSelected}) => {
+export const ClientAdd = () => {
 
 
     const {initialClientForm, error, handlerAddClient} = useClients();
@@ -10,15 +10,6 @@ export const ClientAdd = ({clientSelected}) => {
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
     
-
-
-    useEffect(() => {
-        setClientForm({
-            ...clientSelected,
-            //password:'',
-        });
-    }, [clientSelected]);
-
     const onSubmit = (event) =>{
         event.preventDefault();
      
