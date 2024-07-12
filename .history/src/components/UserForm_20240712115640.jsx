@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react"
-import { UserContext } from "../context/UserContext";
+import { useEffect, useState } from "react"
+import { useUsers } from "../hooks/useUsers";
 
 
-// eslint-disable-next-line react/prop-types
 export const UserForm = ({userSelected,  handlerCloseForm }) => {
 
-    const {handlerAddUser, initialUserForm, errors} = useContext(UserContext);
+    const {handlerAddUser, initialUserForm, errors} = useUsers();
 
     const [userForm, setUserForm ] = useState(initialUserForm);
     const [checked, setChecked] = useState(userForm.admin);
@@ -19,7 +18,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
     }, [userSelected]);
 
 
-    const oninputChange = ( {target }) =>{
+    const onInputChange = ( {target }) =>{
         //console.log(target.value)
         const{name,value} = target;
         setUserForm({
@@ -30,8 +29,10 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
 
     const onCheckboxChange = () => {
         setChecked(!checked);
-        setUserForm({...UserForm,
-                    admin:checked,})
+        setUserForm({
+            ...userForm,
+            admin:checked,
+        })
     }
 
     const onSubmit = (event) =>{
@@ -53,7 +54,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
                 placeholder="Username"
                 name="username"
                 value={username}
-                onChange={oninputChange}/>
+                onChange={onInputChange}/>
                 <p className="text-danger">{ errors?.username}</p>
 
                 {id > 0  || <input 
@@ -62,7 +63,7 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
                     name="password"
                     value={password}
                     type="password"
-                    onChange={oninputChange}/>}
+                    onChange={onInputChange}/>}
                     <p className="text-danger">{ errors?.password}</p>
 
             <input 
@@ -70,21 +71,22 @@ export const UserForm = ({userSelected,  handlerCloseForm }) => {
                 placeholder="Email"
                 value={email}
                 name="email"
-                onChange={oninputChange}/>
+                onChange={onInputChange}/>
                 <p className="text-danger">{ errors?.email}</p>
-            <input type="hidden"
-                   name="id"
-                   value={id}/>
-
+            
             <div className="my-3 form-check">
                     <input type="checkbox"
-                    name="admin"
-                    checked={admin}
-                    className="form-check-input"
-                    onChange={onCheckboxChange}
+                        name="admin"
+                        checked={admin}
+                        className="form-check-input"
+                        onChange={onCheckboxChange}
                     />
                     <label className="form-check-label">Admin</label>
             </div>
+
+            <input type="hidden"
+                   name="id"
+                   value={id}/>
 
             <button
                 className="btn btn-primary"

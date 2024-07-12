@@ -3,7 +3,7 @@ import { ClientAdd } from './ClientAdd';
 
 export const ClientModalForm = () => {
   
-    const {clientSelected, handlerCloseForm} = useClients();
+    const {clientSelected} = useClients();
   
   
     return (
@@ -14,14 +14,14 @@ export const ClientModalForm = () => {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">
-                            {clientSelected.identification > 0 ? 'Editar': 'Crear' }
+                            {clientSelected.id > 0 ? 'Editar': 'Crear' }
                             Clientes
                         </h5>
                     </div>
                     <div className="modal-body">
                         <ClientAdd 
                             userSelected = {clientSelected}
-                            handlerCloseForm ={handlerCloseForm}
+                            // handlerCloseForm ={handlerCloseForm}
                             />
                     </div>
                 </div>

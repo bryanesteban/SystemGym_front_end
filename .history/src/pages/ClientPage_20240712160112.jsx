@@ -29,7 +29,10 @@ export const ClientPage = () => {
                         onClick={handlerOpenClientForm}>
                         Nuevo Cliente
                     </button>}
-                    { clients.length === 0
+                
+
+
+                { clients.length === 0
                         ?   <div className="alert alert-warning"> No existen clientes registrado</div>
                         : <ClientList/>}
                 </div>

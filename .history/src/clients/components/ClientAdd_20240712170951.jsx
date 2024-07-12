@@ -97,11 +97,11 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             value={date_birthday}
             onChange={onInputChange}/>
         <p className="text-danger">{ error?.date_birthday}</p>
-        <button
+        {/* <button
                 className="btn btn-primary"
                 type="submit">
                 {identification > 0 ? 'Editar':'Crear'}
-            </button>
+            </button> */}
         { !handlerCloseForm ||
         <button
         className="btn btn-primary mx-2"

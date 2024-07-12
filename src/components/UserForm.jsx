@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useUsers } from "../hooks/useUsers";
 
 
-// eslint-disable-next-line react/prop-types
+
 export const UserForm = ({userSelected,  handlerCloseForm }) => {
 
     const {handlerAddUser, initialUserForm, errors} = useUsers();

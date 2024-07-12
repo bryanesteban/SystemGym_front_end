@@ -89,14 +89,14 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             onChange={onInputChange}/>
         <p className="text-danger">{ error?.email}</p>
 
-        <input
+        {/* <input
             className="form-control my-3 w-75"
             placeholder=""
             type="date"
             name="date_birthday"
             value={date_birthday}
             onChange={onInputChange}/>
-        <p className="text-danger">{ error?.date_birthday}</p>
+        <p className="text-danger">{ error?.date_birthday}</p> */}
         <button
                 className="btn btn-primary"
                 type="submit">

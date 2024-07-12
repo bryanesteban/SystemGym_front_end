@@ -6,8 +6,11 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, error, handlerAddClient} = useClients();
+
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
+    
+
 
     useEffect(() => {
         setClientForm({
@@ -24,7 +27,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
-    const onClientCloseForm = () => {
+    const onCloseForm = () => {
         setClientForm(initialClientForm);
         handlerCloseForm();
     }
@@ -43,7 +46,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
     <form onSubmit={onSubmit}>
         <input
             className="form-control my-3 w-75"
-            placeholder="Cedula"
+            placeholder="cedula"
             name="identification"
             value={identification}
             onChange={onInputChange}/>
@@ -106,7 +109,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
         className="btn btn-primary mx-2"
         type="button"
-        onClick={() =>onClientCloseForm()}>
+        onClick={() =>onCloseForm()}>
             Cerrar
         </button>
         }

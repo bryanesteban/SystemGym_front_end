@@ -5,6 +5,10 @@ import { ClientModalForm } from '../clients/components/ClientModalForm';
 
 export const ClientPage = () => {
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    
+    
+    
     const {
            clients,
            visibleClientForm,
@@ -29,7 +33,10 @@ export const ClientPage = () => {
                         onClick={handlerOpenClientForm}>
                         Nuevo Cliente
                     </button>}
-                    { clients.length === 0
+                
+
+
+                { clients.length === 0
                         ?   <div className="alert alert-warning"> No existen clientes registrado</div>
                         : <ClientList/>}
                 </div>

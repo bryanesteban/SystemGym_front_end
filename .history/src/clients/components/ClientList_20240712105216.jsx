@@ -13,7 +13,6 @@ export const ClientList = () => {
     return (
         <table className="table table-hover table-striped">
             <thead>
-                <tr>
                 <th>Cedula</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -22,7 +21,6 @@ export const ClientList = () => {
                 <th>correo electronico</th>
                 <th>Fecha de Inscripcion</th>
                 <th>Fecha de Cumpleaños</th>
-                </tr>
             </thead>
             <tbody>
                 {  

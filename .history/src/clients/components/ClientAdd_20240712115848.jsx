@@ -6,8 +6,11 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, error, handlerAddClient} = useClients();
+
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
+    
+
 
     useEffect(() => {
         setClientForm({
@@ -106,7 +109,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
         className="btn btn-primary mx-2"
         type="button"
-        onClick={() =>onClientCloseForm()}>
+        onClick={() =>onCloseForm()}>
             Cerrar
         </button>
         }

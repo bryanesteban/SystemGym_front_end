@@ -6,6 +6,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, error, handlerAddClient} = useClients();
+    console.log("Forma inicial:"+initialClientForm)
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
 
