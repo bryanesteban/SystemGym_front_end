@@ -29,9 +29,7 @@ export const save = async ({identification, name, lastName, address, phone_numbe
     console.log(date_birthday);
 
     const DateNow = new Date(); 
-    const inscription_date = DateNow.toLocaleDateString('en-CA');  
-    // DateNow.getFullYear()+"-"+(DateNow.getMonth()+1)+"-"+DateNow.getDate();
-
+    const inscription_date = DateNow.getFullYear()+"-"+DateNow.getMonth()+1+"-"+DateNow.getDay();
 
     console.log(inscription_date);
     // eslint-disable-next-line no-useless-catch

@@ -18,28 +18,17 @@ export const findAllClient = async() => {
 
 }
 
-export const save = async ({identification, name, lastName, address, phone_number, email, date_birthday}) => {
+export const save = async ({identification, name, lastname, address, phone_number, email, date_birthday}) => {
     
-    console.log(identification);
-    console.log(name);
-    console.log(lastName);
-    console.log(address);
-    console.log(phone_number);
-    console.log(email);
-    console.log(date_birthday);
+    const DateNow = Date.now(); 
+    const inscription_date = DateNow.now();
 
-    const DateNow = new Date(); 
-    const inscription_date = DateNow.toLocaleDateString('en-CA');  
-    // DateNow.getFullYear()+"-"+(DateNow.getMonth()+1)+"-"+DateNow.getDate();
-
-
-    console.log(inscription_date);
     // eslint-disable-next-line no-useless-catch
     try {
         return await generalApi.post(BASE_URL,{
             identification,
             name,
-            lastName,
+            lastname,
             address,
             phone_number,
             email,

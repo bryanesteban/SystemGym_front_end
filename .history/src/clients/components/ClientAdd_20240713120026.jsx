@@ -5,7 +5,7 @@ import { useClients } from '../../hooks/useClients';
 export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
-    const {initialClientForm, errors, handlerAddClient} = useClients();
+    const {initialClientForm, error, handlerAddClient} = useClients();
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
 
@@ -47,15 +47,15 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="identification"
             value={identification}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.identification}</p>
+        <p className="text-danger">{ error?.identification}</p>
 
-        <input
+        {/* <input
             className="form-control my-3 w-75"
             placeholder="Nombre"
             name="name"
             value={name}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.name}</p>
+        <p className="text-danger">{ error?.name}</p>
 
         <input
             className="form-control my-3 w-75"
@@ -63,7 +63,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="lastName"
             value={lastName}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.lastName}</p>
+        <p className="text-danger">{ error?.lastName}</p>
 
         <input
             className="form-control my-3 w-75"
@@ -71,7 +71,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="address"
             value={address}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.address}</p>
+        <p className="text-danger">{ error?.address}</p>
 
         <input
             className="form-control my-3 w-75"
@@ -79,7 +79,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="phone_number"
             value={phone_number}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.phone_number}</p>
+        <p className="text-danger">{ error?.phone_number}</p>
 
         <input
             className="form-control my-3 w-75"
@@ -87,7 +87,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="email"
             value={email}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.email}</p>
+        <p className="text-danger">{ error?.email}</p>
 
         <input
             className="form-control my-3 w-75"
@@ -96,7 +96,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             name="date_birthday"
             value={date_birthday}
             onChange={onInputChange}/>
-        <p className="text-danger">{ errors?.date_birthday}</p>
+        <p className="text-danger">{ error?.date_birthday}</p>
         <button
                 className="btn btn-primary"
                 type="submit">
@@ -109,7 +109,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         onClick={() =>onClientCloseForm()}>
             Cerrar
         </button>
-        }
+        } */}
     </form>
   )
 }
