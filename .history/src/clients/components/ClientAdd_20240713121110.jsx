@@ -6,7 +6,6 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, errors, handlerAddClient} = useClients();
-
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
 
@@ -16,6 +15,19 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             //password:'',
         });
     }, [clientSelected]);
+
+    const onSubmit = (event) =>{
+        event.preventDefault();
+     
+        //guardar el user form en el listado de usuarios
+        handlerAddClient(clientForm);
+        
+    }
+
+    const onClientCloseForm = () => {
+        setClientForm(initialClientForm);
+        handlerCloseForm();
+    }
 
     const onInputChange = ( { target }) => {
 
@@ -27,23 +39,6 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
-    const onClientCloseForm = () => {
-        setClientForm(initialClientForm);
-        handlerCloseForm();
-    }
-    
-    const onSubmit = (event) =>{
-        event.preventDefault();
-     
-        //guardar el user form en el listado de usuarios
-        handlerAddClient(clientForm);
-        
-    }
-
-
-
-    
-
   return (
     <form onSubmit={onSubmit}>
         <input
@@ -51,8 +46,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="Cedula"
             name="identification"
             value={identification}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.identification}</p>
 
         <input
@@ -60,8 +54,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="Nombre"
             name="name"
             value={name}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.name}</p>
 
         <input
@@ -69,8 +62,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="Apellido"
             name="lastName"
             value={lastName}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.lastName}</p>
 
         <input
@@ -78,8 +70,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="direccion"
             name="address"
             value={address}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.address}</p>
 
         <input
@@ -87,32 +78,29 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="Telefono"
             name="phone_number"
             value={phone_number}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.phone_number}</p>
 
         <input
             className="form-control my-3 w-75"
             placeholder="Email"
             name="email"
-            type="email"
             value={email}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.email}</p>
 
         <input
             className="form-control my-3 w-75"
+            placeholder=""
             type="date"
             name="date_birthday"
             value={date_birthday}
-            onChange={onInputChange}
-            required/>
+            onChange={onInputChange}/>
         <p className="text-danger">{ errors?.date_birthday}</p>
         <button
                 className="btn btn-primary"
                 type="submit">
-                {identification > 0 ? 'Editar':'Crear'}
+                {clientSelected.identification > 0 ? 'Editar':'Crear'}
             </button>
         { !handlerCloseForm ||
         <button

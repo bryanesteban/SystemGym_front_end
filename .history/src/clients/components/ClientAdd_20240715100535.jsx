@@ -6,9 +6,8 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, errors, handlerAddClient} = useClients();
-
     const [clientForm, setClientForm] = useState(initialClientForm);
-    const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
+    //const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
 
     useEffect(() => {
         setClientForm({
@@ -16,6 +15,19 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             //password:'',
         });
     }, [clientSelected]);
+
+    const onSubmit = (event) =>{
+        event.preventDefault();
+     
+        //guardar el user form en el listado de usuarios
+        handlerAddClient(clientForm);
+        
+    }
+
+    const onClientCloseForm = () => {
+        setClientForm(initialClientForm);
+        handlerCloseForm();
+    }
 
     const onInputChange = ( { target }) => {
 
@@ -27,30 +39,13 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
-    const onClientCloseForm = () => {
-        setClientForm(initialClientForm);
-        handlerCloseForm();
-    }
-    
-    const onSubmit = (event) =>{
-        event.preventDefault();
-     
-        //guardar el user form en el listado de usuarios
-        handlerAddClient(clientForm);
-        
-    }
-
-
-
-    
-
   return (
     <form onSubmit={onSubmit}>
         <input
             className="form-control my-3 w-75"
             placeholder="Cedula"
             name="identification"
-            value={identification}
+            // value={identification}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.identification}</p>
@@ -68,7 +63,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             className="form-control my-3 w-75"
             placeholder="Apellido"
             name="lastName"
-            value={lastName}
+            // value={lastName}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.lastName}</p>
@@ -77,7 +72,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             className="form-control my-3 w-75"
             placeholder="direccion"
             name="address"
-            value={address}
+            // value={address}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.address}</p>
@@ -86,7 +81,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             className="form-control my-3 w-75"
             placeholder="Telefono"
             name="phone_number"
-            value={phone_number}
+            // value={phone_number}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.phone_number}</p>
@@ -96,23 +91,24 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
             placeholder="Email"
             name="email"
             type="email"
-            value={email}
+            // value={email}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.email}</p>
 
         <input
             className="form-control my-3 w-75"
+            placeholder=""
             type="date"
             name="date_birthday"
-            value={date_birthday}
+            // value={date_birthday}
             onChange={onInputChange}
             required/>
         <p className="text-danger">{ errors?.date_birthday}</p>
         <button
                 className="btn btn-primary"
                 type="submit">
-                {identification > 0 ? 'Editar':'Crear'}
+                {/* {identification > 0 ? 'Editar':'Crear'} */}
             </button>
         { !handlerCloseForm ||
         <button

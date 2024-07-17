@@ -27,11 +27,6 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
-    const onClientCloseForm = () => {
-        setClientForm(initialClientForm);
-        handlerCloseForm();
-    }
-    
     const onSubmit = (event) =>{
         event.preventDefault();
      
@@ -40,7 +35,10 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
-
+    const onClientCloseForm = () => {
+        setClientForm(initialClientForm);
+        handlerCloseForm();
+    }
 
     
 

@@ -6,7 +6,6 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
 
     const {initialClientForm, errors, handlerAddClient} = useClients();
-
     const [clientForm, setClientForm] = useState(initialClientForm);
     const {identification, name, lastName, address, phone_number, email, date_birthday } = clientForm;
 
@@ -17,6 +16,19 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         });
     }, [clientSelected]);
 
+    const onSubmit = (event) =>{
+        event.preventDefault();
+     
+        //guardar el user form en el listado de usuarios
+        handlerAddClient(clientForm);
+        
+    }
+
+    const onClientCloseForm = () => {
+        setClientForm(initialClientForm);
+        handlerCloseForm();
+    }
+
     const onInputChange = ( { target }) => {
 
         const{name,value} = target;
@@ -26,23 +38,6 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         })
         
     }
-
-    const onClientCloseForm = () => {
-        setClientForm(initialClientForm);
-        handlerCloseForm();
-    }
-    
-    const onSubmit = (event) =>{
-        event.preventDefault();
-     
-        //guardar el user form en el listado de usuarios
-        handlerAddClient(clientForm);
-        
-    }
-
-
-
-    
 
   return (
     <form onSubmit={onSubmit}>
@@ -103,6 +98,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
 
         <input
             className="form-control my-3 w-75"
+            placeholder=""
             type="date"
             name="date_birthday"
             value={date_birthday}
@@ -112,7 +108,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
                 className="btn btn-primary"
                 type="submit">
-                {identification > 0 ? 'Editar':'Crear'}
+                {/* {identification > 0 ? 'Editar':'Crear'} */}
             </button>
         { !handlerCloseForm ||
         <button

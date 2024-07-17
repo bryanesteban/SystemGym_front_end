@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom";
 import { useClients } from "../../hooks/useClients";
 
 export const ClientRow = ( {identification, name, lastName, address, phone_number, email,  inscription_date, date_birthday} ) => {
@@ -6,7 +6,7 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
     const dateInscription = new Date(inscription_date);
     const dateBirthday = new Date(date_birthday);
  
-    const { handlerClientSelectForm} = useClients();
+    const { ha} = useClients();
     return(
         <>
             <tr>
@@ -29,12 +29,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                                 address: address,
                                 phone_number: phone_number,
                                 email: email,
-                                inscription_date: inscription_date,
-                                date_birthday: date_birthday
+
                             })}
-                            >
-                                editar
-                            </button>
                     </td>
             </tr>
         </>

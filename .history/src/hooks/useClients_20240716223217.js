@@ -1,6 +1,6 @@
 import { findAllClient, save } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm } from '../store/slices/clients/clienstSlice';
+import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
 
 export const useClients = () => {
