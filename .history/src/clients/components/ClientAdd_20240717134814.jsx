@@ -40,18 +40,20 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         
     }
 
+
+
+    
+
   return (
     <form onSubmit={onSubmit}>
-
-            <input
-                disabled= {!identification ===""}
-                className="form-control my-3 w-75"
-                placeholder="Cedula"
-                name="identification"
-                value={identification}
-                onChange={onInputChange}
-                required/>
-            <p className="text-danger">{ errors?.identification}</p>
+        <input
+            className="form-control my-3 w-75"
+            placeholder="Cedula"
+            name="identification"
+            value={identification}
+            onChange={onInputChange}
+            required/>
+        <p className="text-danger">{ errors?.identification}</p>
 
         <input
             className="form-control my-3 w-75"

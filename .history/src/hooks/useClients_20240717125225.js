@@ -1,12 +1,12 @@
 import { findAllClient, save } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm } from '../store/slices/clients/clienstSlice';
+import { clientSelected, loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
 
 export const useClients = () => {
     
     const dispatch = useDispatch();
-    const {clients, visibleClientForm, clientSelected, addClient, errors} = useSelector(state => state.clients);
+    const {clients, visibleClientForm,addClient, errors} = useSelector(state => state.clients);
 
     const getClients = async() => {
 

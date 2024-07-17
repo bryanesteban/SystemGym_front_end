@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 export const useClients = () => {
     
     const dispatch = useDispatch();
-    const {clients, visibleClientForm, clientSelected, addClient, errors} = useSelector(state => state.clients);
+    const {clients, visibleClientForm,addClient, errors} = useSelector(state => state.clients);
 
     const getClients = async() => {
 

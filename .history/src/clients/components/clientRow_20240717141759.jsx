@@ -33,8 +33,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                                 date_birthday: date_birthday
                             })}
                         >
-                            Editar
-                        </button>
+                                Editar
+                            </button>
                     </td>
             </tr>
         </>
