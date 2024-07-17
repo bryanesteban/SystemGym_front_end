@@ -56,17 +56,9 @@ export const updateClient = async({identification, name, lastName, address, phon
             inscription_date,
             date_birthday
             });
-        } catch ( error ) {
+        }
+        catch ( error ) {
             throw error;
         }
     
-}
-
-export const removeClient = async(identification) => {
-    // eslint-disable-next-line no-useless-catch
-    try{
-        await generalApi.delete(`${BASE_URL}/${identification}`);
-    } catch (error){
-        throw error;
-    }
 }

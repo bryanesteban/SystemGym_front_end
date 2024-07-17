@@ -61,12 +61,3 @@ export const updateClient = async({identification, name, lastName, address, phon
         }
     
 }
-
-export const removeClient = async(identification) => {
-    // eslint-disable-next-line no-useless-catch
-    try{
-        await generalApi.delete(`${BASE_URL}/${identification}`);
-    } catch (error){
-        throw error;
-    }
-}

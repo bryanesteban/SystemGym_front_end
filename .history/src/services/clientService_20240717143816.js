@@ -42,31 +42,3 @@ export const save = async ({identification, name, lastName, address, phone_numbe
         throw error;
     }
 }
-
-export const updateClient = async({identification, name, lastName, address, phone_number, email, date_birthday, inscription_date}) =>{
- // eslint-disable-next-line no-useless-catch
-    try{
-        return await generalApi.put(`${BASE_URL}/${identification}`,{
-            identification,
-            name,
-            lastName,
-            address,
-            phone_number,
-            email,
-            inscription_date,
-            date_birthday
-            });
-        } catch ( error ) {
-            throw error;
-        }
-    
-}
-
-export const removeClient = async(identification) => {
-    // eslint-disable-next-line no-useless-catch
-    try{
-        await generalApi.delete(`${BASE_URL}/${identification}`);
-    } catch (error){
-        throw error;
-    }
-}
