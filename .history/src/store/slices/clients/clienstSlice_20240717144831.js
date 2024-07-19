@@ -78,6 +78,5 @@ export const {
     onCloseClientForm,
     loadingClientError,
     onClientSelectedForm,
-    clientSelected,
-    removeClient
+    clientSelected
 } = clientsSlice.actions

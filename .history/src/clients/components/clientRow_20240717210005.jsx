@@ -23,7 +23,7 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                     <td>{ phone_number }</td>
                     <td>{ email }</td>
                     <td>{ dateInscription.getDate()+"/"+dateInscription.getMonth()+"/"+dateInscription.getFullYear() }</td>
-                    <td>{ dateBirthday.getDate()+"/"+dateBirthday.getMonth()+"/"+dateBirthday.getFullYear() }</td>
+                    <td>{ formatBirthday }</td>
                     <td>
                         <button
                             type="button"

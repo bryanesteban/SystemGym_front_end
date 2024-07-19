@@ -6,9 +6,11 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
     const dateInscription = new Date(inscription_date);
     const dateBirthday = new Date(date_birthday);
  
-    
-    const formatBirthday = new Date(date_birthday).toISOString().slice(0,10) ;
-    const formatInscription = new Date(inscription_date).toISOString().slice(0,10) ;
+    const dateInscriptionString = dateInscription.getDay()+"/"+dateInscription.getMonth()+"/"+dateInscription.getFullYear();
+    const dataBirthDayString = dateBirthday.getDay()+"/"+dateBirthday.getMonth()+"/"+dateBirthday.getFullYear();
+
+    const inscriptonModify = dateInscription.getFullYear()+"-"+dateInscription.getMonth()+" "+dateInscription.getDay();
+    const birthdayModify = dateBirthday.getFullYear()+"-"+dateBirthday.getMonth()+"-"+dateBirthday.getDay();
     const { handlerClientSelectedForm } = useClients();
     
 
@@ -22,8 +24,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                     <td>{ address}</td>
                     <td>{ phone_number }</td>
                     <td>{ email }</td>
-                    <td>{ dateInscription.getDate()+"/"+dateInscription.getMonth()+"/"+dateInscription.getFullYear() }</td>
-                    <td>{ dateBirthday.getDate()+"/"+dateBirthday.getMonth()+"/"+dateBirthday.getFullYear() }</td>
+                    <td>{ dateInscriptionString }</td>
+                    <td>{ dataBirthDayString }</td>
                     <td>
                         <button
                             type="button"
@@ -35,8 +37,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                                 address: address,
                                 phone_number: phone_number,
                                 email: email,
-                                inscription_date: formatInscription,
-                                date_birthday: formatBirthday
+                                inscription_date: inscriptonModify,
+                                date_birthday: birthdayModify
                             })}
                         >
                             Editar

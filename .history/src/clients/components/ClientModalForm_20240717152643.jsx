@@ -14,7 +14,7 @@ export const ClientModalForm = () => {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">
-                            {!clientSelected.identification ==""  ? 'Editar ': 'Crear ' }
+                            {!clientSelected.identification ===""  ? 'Editar ': 'Crear ' }
                             Cliente
                         </h5>
                     </div>

@@ -6,13 +6,7 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
     const dateInscription = new Date(inscription_date);
     const dateBirthday = new Date(date_birthday);
  
-    
-    const formatBirthday = new Date(date_birthday).toISOString().slice(0,10) ;
-    const formatInscription = new Date(inscription_date).toISOString().slice(0,10) ;
-    const { handlerClientSelectedForm } = useClients();
-    
-
-
+    const { handlerClientSelectedForm} = useClients();
     return(
         <>
             <tr>
@@ -22,8 +16,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                     <td>{ address}</td>
                     <td>{ phone_number }</td>
                     <td>{ email }</td>
-                    <td>{ dateInscription.getDate()+"/"+dateInscription.getMonth()+"/"+dateInscription.getFullYear() }</td>
-                    <td>{ dateBirthday.getDate()+"/"+dateBirthday.getMonth()+"/"+dateBirthday.getFullYear() }</td>
+                    <td>{ dateInscription.getDay()+"/"+dateInscription.getMonth()+"/"+dateInscription.getFullYear() }</td>
+                    <td>{ dateBirthday.getDay()+"/"+dateBirthday.getMonth()+"/"+dateBirthday.getFullYear() }</td>
                     <td>
                         <button
                             type="button"
@@ -35,8 +29,8 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                                 address: address,
                                 phone_number: phone_number,
                                 email: email,
-                                inscription_date: formatInscription,
-                                date_birthday: formatBirthday
+                                inscription_date: inscription_date,
+                                date_birthday: date_birthday
                             })}
                         >
                             Editar
