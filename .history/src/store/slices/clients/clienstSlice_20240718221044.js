@@ -92,6 +92,5 @@ export const {
     loadingClientError,
     onClientSelectedForm,
     clientSelected,
-    updateClient,
     removeClient
 } = clientsSlice.actions

@@ -48,7 +48,7 @@ export const ClientRow = ( {identification, name, lastName, address, phone_numbe
                             className="btn btn-danger btn-sm"
                             onClick={() => handlerRemoveClient(identification)}
                         >
-                            Borrar
+
                         </button>
                     </td>
             </tr>

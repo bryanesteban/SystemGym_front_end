@@ -1,9 +1,8 @@
-import { findAllClient, findClientByIdentification, removeClientServ, save, updateClientServ } from '../services/clientService'
+import { findAllClient, findClientByIdentification, save, updateClientServ } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm, updateClient, removeClient } from '../store/slices/clients/clienstSlice';
+import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../auth/hooks/useAuth';
 
 export const useClients = () => {
     
@@ -11,7 +10,7 @@ export const useClients = () => {
     const {clients, visibleClientForm, clientSelected, addClient, errors} = useSelector(state => state.clients);
 
     const navigate = useNavigate();
-    const { login, handleLogout } = useAuth();
+
     const getClients = async() => {
 
         try {
@@ -51,10 +50,10 @@ export const useClients = () => {
                     clientExist = true;
                 }
         Swal.fire(
-            (!clientExist) ?
+            (clientExist) ?
             'Cliente Creado!':
             'Cliente Actualizado',
-            (!clientExist) ?
+            (clientExist) ?
             'El cliente ha sido creado con exito!':
             'El usuario ha sido modificado con exito!',
             'success'
@@ -71,35 +70,6 @@ export const useClients = () => {
         }
 
 
-    }
-
-    const handlerRemoveClient = (identification) => {
-
-        Swal.fire({
-            title: "Estas seguro que desea eliminar?",
-            text: "Cuidado, el cliente sera eliminado!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Si, eliminar!"
-        }).then( async (result) => {
-            if(result.isConfirmed){
-
-                try{
-
-                    await removeClientServ(identification);
-                    dispatch(removeClient(identification));
-
-                }catch(error){
-
-                    if(error.response?.status == 401)
-                        {
-                            handleLogout();
-                        }
-                }
-            }
-        })
     }
   
     const handlerOpenClientForm = () => {
@@ -130,6 +100,6 @@ export const useClients = () => {
         handlerClientSelectedForm,
         handlerCloseForm,
         handlerAddClient,
-        handlerRemoveClient
+
     }
 }

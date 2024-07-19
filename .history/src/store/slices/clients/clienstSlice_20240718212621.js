@@ -63,19 +63,6 @@ export const clientsSlice = createSlice({
             state.clientSelected = action.payload;
             state.visibleClientForm = true;
         },
-        updateClient:(state, action) => {
-            state.clients = state.clients.map(u => {
-                if(u.identification === action.payload.identification ){
-                    return{
-                        ...action.payload,
-                    }
-                }
-                return u;
-            });
-            state.clientSelected = initialClientForm;
-            state.visibleClientForm = false;
-        },
-
         removeClient: (state,action) => {
             state.clients = state.clients.filter(client => client.identification !== action.payload);
         }
@@ -92,6 +79,5 @@ export const {
     loadingClientError,
     onClientSelectedForm,
     clientSelected,
-    updateClient,
     removeClient
 } = clientsSlice.actions

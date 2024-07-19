@@ -56,7 +56,7 @@ export const findClientByIdentification = async(identification) => {
 
 }
 
-export const updateClientServ = async({identification, name, lastName, address, phone_number, email, date_birthday, inscription_date}) =>{
+export const updateClient = async({identification, name, lastName, address, phone_number, email, date_birthday, inscription_date}) =>{
  // eslint-disable-next-line no-useless-catch
     try{
         return await generalApi.put(`${BASE_URL}/${identification}`,{
@@ -75,7 +75,7 @@ export const updateClientServ = async({identification, name, lastName, address, 
     
 }
 
-export const removeClientServ = async(identification) => {
+export const removeClient = async(identification) => {
     // eslint-disable-next-line no-useless-catch
     try{
         await generalApi.delete(`${BASE_URL}/${identification}`);

@@ -1,6 +1,6 @@
 import { findAllClient, findClientByIdentification, removeClientServ, save, updateClientServ } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
-import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm, updateClient, removeClient } from '../store/slices/clients/clienstSlice';
+import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm, updateClient } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/hooks/useAuth';
@@ -89,7 +89,6 @@ export const useClients = () => {
                 try{
 
                     await removeClientServ(identification);
-                    dispatch(removeClient(identification));
 
                 }catch(error){
 
@@ -130,6 +129,6 @@ export const useClients = () => {
         handlerClientSelectedForm,
         handlerCloseForm,
         handlerAddClient,
-        handlerRemoveClient
+
     }
 }

@@ -130,6 +130,6 @@ export const useClients = () => {
         handlerClientSelectedForm,
         handlerCloseForm,
         handlerAddClient,
-        handlerRemoveClient
+
     }
 }
