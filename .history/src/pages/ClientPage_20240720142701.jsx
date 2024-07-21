@@ -25,16 +25,14 @@ export const ClientPage = () => {
         <div className="container my-4">
             <h2>Clientes</h2>
             <div className="row">
-                <div className="input-group mb-2">
-                    <div className="col">
+
+                <div className="col">
                    {visibleClientForm || <button 
                         className="btn btn-primary my-2"
                         onClick={handlerOpenClientForm}>
                         Nuevo Cliente
                     </button>}
                     <FindClient/>
-                </div>
-
 
                     { clients.length === 0
                         ?   <div className="alert alert-warning"> No existen clientes registrado</div>

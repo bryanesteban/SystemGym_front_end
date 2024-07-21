@@ -33,7 +33,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
     }
 
     const onSubmit = (event) =>{
-        event.preventDefault();
+        // event.preventDefault();
      
         //guardar el user form en el listado de usuarios
         handlerAddClient(clientForm);
@@ -116,7 +116,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
                 className="btn btn-primary"
                 type="submit">
-                {!clientSelected.identification == "" ? 'Editar':'Crear'}
+                {!identification == "" ? 'Editar':'Crear'}
             </button>
         { !handlerCloseForm ||
         <button

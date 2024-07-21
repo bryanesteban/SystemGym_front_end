@@ -56,14 +56,8 @@ export const findClientByIdentification = async(identification) => {
 
 }
 
-export const findClientByNameAndLastname = async(namefield) => {
- 
-    // eslint-disable-next-line no-useless-catch
-    try{
-        return await generalApi.get(`${BASE_URL}/find/${namefield}`);
-    } catch(error){
-        throw error;
-    }
+export const findClientByNameAndLastname = async(nameVal) => {
+    
 }
 
 export const updateClientServ = async({identification, name, lastName, address, phone_number, email, date_birthday, inscription_date}) =>{

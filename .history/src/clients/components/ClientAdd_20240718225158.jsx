@@ -44,7 +44,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
     <form onSubmit={onSubmit}>
 
         <input
-            disabled= {!clientSelected.identification == "" ? true:false}
+            disabled= {!identification == "" ? true:false}
             className="form-control my-3 w-75"
             placeholder="Cedula"
             name="identification"
@@ -116,7 +116,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
                 className="btn btn-primary"
                 type="submit">
-                {!clientSelected.identification == "" ? 'Editar':'Crear'}
+                {!identification == "" ? 'Editar':'Crear'}
             </button>
         { !handlerCloseForm ||
         <button

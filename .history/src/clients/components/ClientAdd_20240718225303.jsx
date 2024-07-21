@@ -116,7 +116,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
                 className="btn btn-primary"
                 type="submit">
-                {!clientSelected.identification == "" ? 'Editar':'Crear'}
+                {!identification == "" ? 'Editar':'Crear'}
             </button>
         { !handlerCloseForm ||
         <button

@@ -12,7 +12,6 @@ export const useClients = () => {
 
     const navigate = useNavigate();
     const { login, handleLogout } = useAuth();
-    
     const getClients = async(nameField) => {
 
         try {

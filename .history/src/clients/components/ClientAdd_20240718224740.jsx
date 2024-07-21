@@ -8,7 +8,14 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
     const {initialClientForm, errors, handlerAddClient} = useClients();
 
     const [clientForm, setClientForm] = useState(initialClientForm);
+    const [idDisabled, setIdDisabled] = useState(false);
     const {identification, name, lastName, address, phone_number, email, date_birthday, inscription_date } = clientForm;
+
+
+    useEffect(() => {
+        setIdDisabled(true);
+    });
+
 
     useEffect(() => {
         setClientForm({
@@ -44,7 +51,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
     <form onSubmit={onSubmit}>
 
         <input
-            disabled= {!clientSelected.identification == "" ? true:false}
+            disabled= {idDisabled}
             className="form-control my-3 w-75"
             placeholder="Cedula"
             name="identification"
@@ -116,7 +123,7 @@ export const ClientAdd = ({clientSelected, handlerCloseForm}) => {
         <button
                 className="btn btn-primary"
                 type="submit">
-                {!clientSelected.identification == "" ? 'Editar':'Crear'}
+                {!identification == "" ? 'Editar':'Crear'}
             </button>
         { !handlerCloseForm ||
         <button

@@ -1,4 +1,4 @@
-import { findAllClient, findClientByIdentification, removeClientServ, save, updateClientServ, findClientByNameAndLastname } from '../services/clientService'
+import { findAllClient, findClientByIdentification, removeClientServ, save, updateClientServ } from '../services/clientService'
 import { useDispatch, useSelector } from 'react-redux'
 import { loadingClient, onOpenClientForm, onCloseClientForm, loadingClientError, initialClientForm, onClientSelectedForm, updateClient, removeClient } from '../store/slices/clients/clienstSlice';
 import Swal from 'sweetalert2';
@@ -12,17 +12,17 @@ export const useClients = () => {
 
     const navigate = useNavigate();
     const { login, handleLogout } = useAuth();
-    
     const getClients = async(nameField) => {
 
         try {
-            let result = initialClientForm ;
+            const result = initialClientForm ;
             if(nameField == "")
                 {
-                    result = await findAllClient();
+
+                    const result = await findAllClient();
                 }else
                 {
-                    result = await findClientByNameAndLastname(nameField);
+                    const result = await findAllClient();
                 }
             // console.log(result);
             dispatch(loadingClient(result.data));

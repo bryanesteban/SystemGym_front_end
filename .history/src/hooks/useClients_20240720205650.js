@@ -12,17 +12,17 @@ export const useClients = () => {
 
     const navigate = useNavigate();
     const { login, handleLogout } = useAuth();
-    
     const getClients = async(nameField) => {
 
         try {
-            let result = initialClientForm ;
+            const result = initialClientForm ;
             if(nameField == "")
                 {
-                    result = await findAllClient();
+
+                    const result = await findAllClient();
                 }else
                 {
-                    result = await findClientByNameAndLastname(nameField);
+                    const result = await findClientByNameAndLastname(nameField);
                 }
             // console.log(result);
             dispatch(loadingClient(result.data));
