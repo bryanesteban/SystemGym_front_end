@@ -17,7 +17,7 @@ export const FindClient = () => {
             ...findID,
             [name]:value,
         });
-        getClients(find);
+        getClients()
     }
 
   
