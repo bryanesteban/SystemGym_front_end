@@ -68,7 +68,6 @@ export const findClientByNameAndLastname = async(namefield) => {
             text:  "No se encontro el usuario buscado",
             icon:  "warning"
          });
-         throw error;
     }
 }
 

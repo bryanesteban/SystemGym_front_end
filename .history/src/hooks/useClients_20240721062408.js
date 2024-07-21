@@ -16,16 +16,21 @@ export const useClients = () => {
     const getClients = async(nameField = "") => {
 
         try {
-
+            let result = initialClientForm ;
             if(nameField === "")
                 {
-                    const result = await findAllClient();
+                    result = await findAllClient();
                     dispatch(loadingClient(result.data));
                 }else
                 {
-                    const result = await findClientByNameAndLastname(nameField);
+                    result = await findClientByNameAndLastname(nameField);
 
                     if(!Object.keys(result.data).length) {
+                        Swal.fire({
+                            title: "Usuarios Inexistentes",
+                            text:  "No se encontro el usuario buscado",
+                            icon:  "warning"
+                         });
                          dispatch(loadingClient(initialClientForm));
                     }else
                     {

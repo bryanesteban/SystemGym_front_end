@@ -38,12 +38,6 @@ export const FindClient = () => {
                     value={find}
                     name="find"
                     onChange={onInputChange}/>
-
-                <button 
-                    className="btn btn-primary mx-2"
-                    type="submit">
-                    Buscar
-                </button>
                 </form>
             </div>
         </nav>

@@ -29,22 +29,13 @@ export const FindClient = () => {
     return (
         <nav className="navbar bg-body-tertiary">
             <div className="container-fluid">
-                <form   className="d-flex"
-                        role="search"
-                        onSubmit={onFindClient}>
-                
-                <input
-                    placeholder="Buscar"
-                    value={find}
-                    name="find"
-                    onChange={onInputChange}/>
-
-                <button 
-                    className="btn btn-primary mx-2"
-                    type="submit">
-                    Buscar
-                </button>
-                </form>
+            <form onSubmit={onFindClient}>
+            <span className="mx-3">Buscar: </span>
+            <input
+                value={find}
+                name="find"
+                onChange={onInputChange}/>
+            </form>
             </div>
         </nav>
   )

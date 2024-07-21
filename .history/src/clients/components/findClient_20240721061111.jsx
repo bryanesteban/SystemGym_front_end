@@ -32,18 +32,11 @@ export const FindClient = () => {
                 <form   className="d-flex"
                         role="search"
                         onSubmit={onFindClient}>
-                
+                <span className="mx-3">Buscar: </span>
                 <input
-                    placeholder="Buscar"
                     value={find}
                     name="find"
                     onChange={onInputChange}/>
-
-                <button 
-                    className="btn btn-primary mx-2"
-                    type="submit">
-                    Buscar
-                </button>
                 </form>
             </div>
         </nav>

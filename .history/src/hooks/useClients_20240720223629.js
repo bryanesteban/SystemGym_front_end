@@ -16,25 +16,12 @@ export const useClients = () => {
     const getClients = async(nameField = "") => {
 
         try {
+  
 
-            if(nameField === "")
-                {
-                    const result = await findAllClient();
-                    dispatch(loadingClient(result.data));
-                }else
-                {
-                    const result = await findClientByNameAndLastname(nameField);
+            const  result = await findAllClient();
 
-                    if(!Object.keys(result.data).length) {
-                         dispatch(loadingClient(initialClientForm));
-                    }else
-                    {
-                        dispatch(loadingClient(result.data));
-                    }
-
-                }
             // console.log(result);
-            
+            dispatch(loadingClient(result.data));
         } catch (error) {
             console.log(error);
             if(error.response?.status == 401){
