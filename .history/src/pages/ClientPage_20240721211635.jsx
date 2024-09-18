@@ -36,6 +36,7 @@ export const ClientPage = () => {
                     
                 </div>
 
+
                     { clients.length === 0
                         ?   <div className="alert alert-warning"> No existen clientes registrado</div>
                         : <ClientList/>}
